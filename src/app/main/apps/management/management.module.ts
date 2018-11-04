@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatMenuModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import { ChartsModule } from 'ng2-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FuseSharedModule } from '@fuse/shared.module';
-
+import { FuseSidebarModule } from '@fuse/components';
 
 import { ManagementComponent } from './management/management.component';
-import { FuseSidebarModule } from '@fuse/components';
-import { MatIconModule, MatButtonModule, MatDividerModule, MatMenuModule, MatFormFieldModule, MatSelectModule, MatTableModule, MatTabsModule } from '@angular/material';
+import { ManagementDashboardService } from './management.service';
+
 
 const routes = [
   {
     path: 'management',
     component: ManagementComponent,
     resolve: {
-      // academy: AcademyCoursesService
+      data: ManagementDashboardService
     }
   },
 
@@ -26,21 +28,23 @@ const routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    
+
     MatIconModule,
     MatButtonModule,
-    MatDividerModule,
     MatFormFieldModule,
     MatMenuModule,
     MatSelectModule,
-    MatTableModule,
     MatTabsModule,
-
+    ChartsModule,
+    NgxChartsModule,
     FuseSharedModule,
     FuseSidebarModule,
   ],
   declarations: [
     ManagementComponent
+  ],
+  providers: [
+    ManagementDashboardService
   ]
 })
 export class ManagementModule { }

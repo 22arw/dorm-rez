@@ -19,6 +19,7 @@ import { KnowledgeBaseFakeDb } from 'app/fake-db/knowledge-base';
 import { IconsFakeDb } from 'app/fake-db/icons';
 import { ChatPanelFakeDb } from 'app/fake-db/chat-panel';
 import { QuickPanelFakeDb } from 'app/fake-db/quick-panel';
+import { ManagementDashboardDb } from 'app/fake-db/management-analytics';
 
 export class FakeDbService implements InMemoryDbService
 {
@@ -29,6 +30,7 @@ export class FakeDbService implements InMemoryDbService
             'project-dashboard-projects' : ProjectDashboardDb.projects,
             'project-dashboard-widgets'  : ProjectDashboardDb.widgets,
             'analytics-dashboard-widgets': AnalyticsDashboardDb.widgets,
+            'management-dashboard-widgets': ManagementDashboardDb.widgets,
 
             // Calendar
             'calendar': CalendarFakeDb.data,
